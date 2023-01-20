@@ -48,10 +48,11 @@ const signin = async (req, res) => {
                 const token = await jwt.sign({_id: existingUser._id}, process.env.SECRET_KEY); //Encrytion
                 res.cookie('accessToken', token, {expire: new Date() + 86400000})
 
-                return res.status(201).send({message: 'User signed-in successfully.'})
+                return res.status(201).send({message: 'User signed-in successfully.',existingUser})
             }
 
-            return res.status(401).send({message: 'Invalid credentials'})
+            return res.status(401).send({message: 'Invalid credentials'
+        })
         }
 
         res.status(400).send({message: 'User doesnot exist.'})
