@@ -31,7 +31,7 @@ app.use(cors({
     origin: 'https://main--pasword-flow.netlify.app',
     credentials: true
 }));
-  
+console.log("")
 
 app.use('/api',authRoutes);
 app.use('/api', userRoutes);
